@@ -60,5 +60,5 @@ print(response.json())
 }
 
 
-Note that the actual response may vary depending on the input prompt and the parameters used..
+Note that the actual response may vary depending on the input prompt and the parameters used.
 
