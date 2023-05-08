@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ChatGPT Web App</title>
+    <title>Chatbot Web App</title>
   </head>
   <body>
-    <div class="header">
-      <h1>ChatGPT Web App</h1>
-    </div>
-    <div class="content">
+    <header>
+      <h1>Welcome to the Chatbot Web App</h1>
+    </header>
+    <section class="chat">
       <?php if (isset($error)) { ?>
-        <p style="color: red;"><?php echo $error; ?></p>
+        <p class="error-message"><?php echo $error; ?></p>
       <?php } ?>
       <form action="/results" method="POST">
-        <label for="prompt">Prompt or Question:</label>
+        <label for="prompt">Enter your prompt or question:</label>
         <input type="text" id="prompt" name="prompt"><br><br>
         <input type="submit" value="Submit">
       </form>
-    </div>
+    </section>
   </body>
 </html>
