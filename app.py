@@ -14,6 +14,7 @@ def results():
     prompt = request.form['prompt']
     if prompt == '':
         return render_template('index.html', error='Please enter a prompt.')
+
     try:
         response = requests.post('https://api.openai.com/v1/engines/davinci/completions', json={
             'prompt': prompt,
@@ -25,11 +26,13 @@ def results():
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {app.config["API_KEY"]}'
         })
+
         response.raise_for_status()
         message = response.json()['choices'][0]['text']
         return render_template('results.html', message=message)
+
     except requests.exceptions.HTTPError as e:
-        return render_template('index.html', error=f'API error: {e}')
+        return render_template('index.html', error='An error occurred while processing your request. Please try again later.')
 
 if __name__ == '__main__':
     app.run(debug=True)
